@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <%-include('../layout/head.ejs')%>
+
+
+        <main>
+            <%covid.forEach(country=>{%>
+                <div class="card">
+                    <p>country:
+                        <%=country.Country%>
+                    </p>
+                    <p>total confirmed:
+                        <%=country.TotalConfirmed%>
+                    </p>
+                    <p>total deaths:
+                        <%=country.TotalDeaths%>
+                    </p>
+                    <p>total recovered:
+                        <%=country.TotalRecovered%>
+                    </p>
+                    <p>date:
+                        <%=country.Date%>
+                    </p>
+
+                    <form action="/Records" method="POST">
+                        <input type="hidden" name="Country" value="<%=country.Country%>">
+                        <input type="hidden" name="TotalConfirmed" value="<%=country.TotalConfirmed%>">
+                        <input type="hidden" name="TotalDeaths" value="<%=country.TotalDeaths%>">
+                        <input type="hidden" name="TotalRecovered" value="<%=country.TotalRecovered%>">
+                        <input type="hidden" name="Date" value="<%=country.Date%>">
+                        <button type="submit">add to records</button>
+                    </form>
+                </div>
+                <%})%>
+        </main>
+</body>
+
+</html>

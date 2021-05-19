@@ -1,0 +1,17 @@
+body {
+    background-color: aqua;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: brown;
+    border: solid;
+    display: grid;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
